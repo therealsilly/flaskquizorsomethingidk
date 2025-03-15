@@ -1,18 +1,21 @@
 from flask import Flask, render_template, request
+import db_scripts as db
 
 app = Flask(__name__)
 
 @app.route("/")
 def index():
     # get all quiz and send them back to the client
-    quiz_list = []
+    quiz_list = db.getAllQuiz()
     return render_template("start.html", quiz_list=quiz_list)
 
 
 @app.route("/test", methods = ["GET", "POST"])
 def test():
     # get  
-    questions = []
+    quiz_id = request.form.get("quiz_id")
+    questions = db.getQuestionsByQuizId(quiz_id)
+    print(questions)
     return render_template("test.html", questions=questions)
 
 

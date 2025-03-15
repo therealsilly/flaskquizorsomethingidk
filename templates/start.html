@@ -17,7 +17,7 @@
     <h2>Choose quiz:</h2>
     <form method="post" action="/test">
       <select name="quiz_id">
-        {% for id, name in q_list %}
+        {% for id, name in quiz_list %}
         <option value="{{ id }}">{{name}}</option>
         {% endfor %}
       </select>

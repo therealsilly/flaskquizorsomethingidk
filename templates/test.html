@@ -11,7 +11,20 @@
     <title>Question</title>
   </head>
   <body>
-    {% if question %}
+    <form method="post" action="http://localhost:5000/result">
+      {% for id, question, answer, wrong1, wrong2, wrong3 in questions %}
+      <div>
+        <h2>{{ question }}</h2>
+        <select name="{{ question }}" id="{{ id }}">
+          <option value="{{ answer }}">{{ answer }}</option>
+          <option value="{{ wrong1 }}">{{ wrong1 }}</option>
+          <option value="{{ wrong2 }}">{{ wrong2 }}</option>
+          <option value="{{ wrong3 }}">{{ wrong3 }}</option>
+        </select>
+      </div>
+      {% endfor %}
+    </form>
+    <!--{% if question %}
     <h1>{{question.question}}</h1>
     <form method="post" action="http:\\asdasd.com\">
       <input type="hidden" name="quest_id" value="{{question.quest_id}}" />

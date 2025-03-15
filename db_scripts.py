@@ -131,7 +131,7 @@ def getQuestionsByQuizId(quiz_id):
     open()
     query = getQuestsByQuizIdQuery(quiz_id)
     cursor.execute(query)
-    rows = cursor.fetchone()
+    rows = cursor.fetchall()
 
     conn.commit()
     close()
@@ -151,7 +151,7 @@ def fetch_user(username, password):
     return user
 
 if __name__ == "__main__":
-    clear_db()
+    #clear_db()
     create()
     add_question()
     add_quiz()
