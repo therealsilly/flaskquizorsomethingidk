@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='test.css') }}"
+    />
+    <title>Question</title>
+  </head>
+  <body>
+    {% if question %}
+    <h1>{{question.question}}</h1>
+    <form method="post" action="http:\\asdasd.com\">
+      <input type="hidden" name="quest_id" value="{{question.quest_id}}" />
+      <div class"outer-div"> 
+        {% for answer in question.answers %}
+        <div class="form_radio_btn">
+          <input type="radio" name="ans_text" value="{{answer}}" />{{ answer }}
+        </div>
+        {% endfor %}
+      </div>
+      <div class="inner-div">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+    {% endif %}
+  </body>
+</html>
